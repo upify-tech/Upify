@@ -1,0 +1,105 @@
+.profile-card {
+  box-shadow: 5px 5px 31px 0 rgb(0 0 0 / 20%);
+  transition: 0.3s;
+  width: 60%;
+  border-radius: 15px;
+  height: 500px;
+  margin: 60px auto;
+  /* background-color: #9ac1e2; */
+  background-color: #dcdcdc;
+}
+  
+.edit-card{
+  box-shadow: 5px 5px 31px 0 rgb(0 0 0 / 20%);
+    transition: 0.3s;
+    width: 50%;
+    border-radius: 15px;
+    height: 54% !important;
+    padding: 15px;
+    margin: 56px auto;
+    background-color: #ccddeb;
+}
+
+.profile-card:hover {
+  box-shadow: 10px 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.profile-container {
+  padding: 15px 16px;
+}
+
+.form-item{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#settings-section{
+    height: 670px;
+}
+
+.edit-icon{
+  text-align: right;
+  padding-right: 15px;
+}
+
+.see-btn{
+  text-decoration: none;
+  color: black;
+
+}
+
+.see-div{
+  font-size: medium;
+  text-align: right;
+  padding-right: 15px;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 59px;
+  height: 54px;
+  border-radius: 50%;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 450px){
+  .profile-card{
+    width: 85%;
+    height: 400px;
+  }
+  .form-item{
+    padding: 4px 20px;
+    margin: 6px 0;
+  }
+  .edit-card{
+    width: 80%;
+  }
+  #settings-section {
+    height: 400px;
+  }
+  .profile-container {
+    padding: 10px 12px;
+}
+}
+@media only screen and (max-width: 375px){
+  .profile-card{
+    width: 85%;
+    height: 350px;
+  }
+  .form-item{
+    padding: 4px 20px;
+    margin: 6px 0;
+  }
+  .edit-card{
+    width: 90%;
+  }
+  #settings-section {
+    height: 400px;
+  }
+  .profile-container {
+    padding: 10px 12px;
+}
+}
