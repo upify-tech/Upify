@@ -22,19 +22,31 @@ import Footer from '../../Footer';
 
 const UploadJobs = () => {
   const [register, setRegister] = useState({
-    username: "",
-    email: "",
-    password: "",
-    cpassword: "",
-    interests: [],
+    title: "",
+    description: "",
+    comp_name: "",
+    domain: "",
+    req_skills: "",
+    add_skills: "",
+    location: "",
+    education: "",
+    experience: "",
+    ctc: "",
+    link: "",
   });
 
   const [submit, setSubmit] = useState({
-    username: "",
-    email: "",
-    password: "",
-    cpassword: "",
-    interests: [],
+    title: "",
+    description: "",
+    comp_name: "",
+    domain: "",
+    req_skills: "",
+    add_skills: "",
+    location: "",
+    education: "",
+    experience: "",
+    ctc: "",
+    link: "",
   })
 
   const handleChange = (event) => {
@@ -52,11 +64,16 @@ const UploadJobs = () => {
       setSubmit(register);
       setRegister({
         title: "",
+        description: "",
+        comp_name: "",
+        domain: "",
+        req_skills: "",
+        add_skills: "",
         location: "",
-        reqskills: "",
-        addskills: "",
-        minExp: "",
-        maxExp: "",
+        education: "",
+        experience: "",
+        ctc: "",
+        link: "",
         email: "",
         password: "",
         cpassword: "",
@@ -116,16 +133,38 @@ const UploadJobs = () => {
   };
   return (
     <>
-      <NavbarLogin/>
-      <h2>{`${submit.username} ${submit.email} ${submit.password} ${submit.cpassword} ${submit.interests}`}</h2>
+      <NavbarLogin />
+      {/* <h2>{`${submit.username} ${submit.email} ${submit.password} ${submit.cpassword} ${submit.interests}`}</h2> */}
       <Container maxWidth="sm" className="upload-container">
         <Paper elevation={3} className="signupPaper">
           <Paper className="signin" id="paper">
             <form onSubmit={submitFunc} id="myform">
               <TextField className="myinput" name="title" value={register.title} onChange={handleChange} fullWidth={true} label="Job Title" variant="standard" required={true} />
+              <TextField className="myinput" name="description" value={register.description} onChange={handleChange} fullWidth={true} label="Job Description" variant="standard" required={true} />
+              <TextField className="myinput" name="comp_name" value={register.comp_name} onChange={handleChange} fullWidth={true} label="Company Hiring For/Company Name" variant="standard" required={true} />
+              <br />
+              <InputLabel style={{ textAlign: "left" }}>Select Domain</InputLabel>
+              <FormControl className={classes.formControl} fullWidth={true} >
+                <InputLabel id="demo-simple-select-label">Domain</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  onChange={handleChange}
+                  name="domain"
+                  value={register.domain}
+
+                >
+                  <MenuItem value={0}>Data Science</MenuItem>
+                  <MenuItem value={1}>Blockchan</MenuItem>
+                  <MenuItem value={2}>Cyber Security</MenuItem>
+                  <MenuItem value={3}>Cloud Computing</MenuItem>
+                  <MenuItem value={4}>Programming</MenuItem>
+                </Select>
+              </FormControl>
+              <TextField className="myinput" name="req_skills" value={register.req_skills} onChange={handleChange} fullWidth={true} label="Required Skills" variant="standard" required={true} />
+              <TextField className="myinput" name="add_skills" value={register.add_skills} onChange={handleChange} fullWidth={true} label="Additional Skills" variant="standard" required={true} />
               <TextField className="myinput" name="location" value={register.location} onChange={handleChange} fullWidth={true} label="Locations(s)" variant="standard" required={true} />
-              <TextField className="myinput" name="reqskills" value={register.reqskills} onChange={handleChange} fullWidth={true} label="Required Skills" variant="standard" required={true} />
-              <TextField className="myinput" name="addskills" value={register.addskills} onChange={handleChange} fullWidth={true} label="Additional Skills" variant="standard" required={true} />
+              <TextField className="myinput" name="education" value={register.education} onChange={handleChange} fullWidth={true} label="Education" variant="standard" required={true} />
               <InputLabel style={{ textAlign: "left" }}>Experience</InputLabel>
               <FormControl className={classes.formControl} fullWidth={true} >
                 <InputLabel id="demo-simple-select-label">Min Exp</InputLabel>
@@ -165,17 +204,15 @@ const UploadJobs = () => {
               <br />
               <FormControl component="fieldset" fullWidth={true} style={{ alignItems: "left" }}>
                 <FormLabel component="legend" style={{ textAlign: "left" }}>CTC</FormLabel>
-                <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChangeRadio}>
+                <RadioGroup aria-label="gender" name="ctc" value={value} onChange={handleChangeRadio}>
                   <FormControlLabel value="best_in_industry" control={<Radio />} label="Best_in_industry" />
                   <FormControlLabel value="undisclosed" control={<Radio />} label="Undisclosed" />
-                  <FormControlLabel value="_." control={<Radio />} label="." />
+                  {/* <FormControlLabel value="_." control={<Radio />} label="." /> */}
                   {/* <FormControlLabel value="disabled" disabled control={<Radio />} label="(Disabled option)" /> */}
                 </RadioGroup>
               </FormControl>
+              <TextField className="myinput" name="link" value={register.link} onChange={handleChange} fullWidth={true} label="Registration Link" variant="standard" required={true} />
 
-              <TextField className="myinput" name="Education" value={register.education} onChange={handleChange} fullWidth={true} label="Education" variant="standard" required={true} />
-              <TextField className="myinput" name="Job_Description" value={register.description} onChange={handleChange} fullWidth={true} label="Job Description" variant="standard" required={true} />
-              <TextField className="myinput" name="Company_Name" value={register.company_name} onChange={handleChange} fullWidth={true} label="Company Hiring For/Company Name" variant="standard" required={true} />
 
 
               {/* <form className={classes.container} noValidate>
@@ -249,7 +286,7 @@ const UploadJobs = () => {
           </Paper>
         </Paper>
       </Container>
-      <Footer/>
+      <Footer />
 
     </>
   );

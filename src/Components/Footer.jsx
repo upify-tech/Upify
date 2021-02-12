@@ -7,7 +7,7 @@ const Footer = () => {
                 <div className="footer-container">
                     <div className="footer-heading">Upify</div>
                     <div className="footer-content">
-                        <div className="center">
+                        <div className="center vcenter">
                             <a href="/" target="/" className="footer-link">Our Email</a>
                         </div>
                         <div className="center">

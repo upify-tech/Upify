@@ -8,7 +8,7 @@ import HomeInternshipsData from '../../Data/HomeInternshipsData';
 const HomeInternshipsCard = () => {
     // const x={"A":"a","b":"b","c":"c"};
     return (
-        <>
+        <> 
 
             <Container className="home-card-container">
                 {

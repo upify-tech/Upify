@@ -1,5 +1,6 @@
 import React from "react";
 import ProfileNav from "../Profile/ProfileNav";
+import Upifylogo from "../../images/upify-logo-new.png";
 
 const NavbarLogin=()=>{
     return(
@@ -8,7 +9,10 @@ const NavbarLogin=()=>{
                 <div className="row" >
                     <div className="col-11 mx-auto" >
                         <nav className="navbar navbar-expand-lg navbar-light ">
-                            <a className="navbar-brand" href="https://www.youtube.com/">Upify</a>
+                            {/* <a className="navbar-brand" href="https://www.youtube.com/">Upify</a> */}
+                            <a className="navbar-brand" href="https://www.youtube.com/">
+                            <img src={Upifylogo} alt="Upifylogo" className="logo"/>
+                            </a>
                             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
                             </button>

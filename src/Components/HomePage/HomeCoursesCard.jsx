@@ -2,7 +2,7 @@ import React from 'react';
 // import Hdata from '../data/Hdata';
 import Homedata from './Homedata';
 import Container from '@material-ui/core/Container';
-import HomeCoursesData from '../../Data/HomeCoursesData';
+import HomeCoursesData from '../../Data/HomeCoursesData'; 
 import '../../CSS/HomePage/Home.css';
 
 

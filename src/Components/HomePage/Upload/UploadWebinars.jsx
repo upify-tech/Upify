@@ -22,19 +22,31 @@ import Footer from '../../Footer';
 
 const UploadWebinars = () => {
     const [register, setRegister] = useState({
-        username: "",
-        email: "",
-        password: "",
-        cpassword: "",
-        interests: [],
+        title: "",
+        speaker_name: "",
+        about_speaker: "",
+        domain: "",
+        description: "",
+        audience: "",
+        time: "",
+        date: "",
+        online_offline: "",
+        location: "",
+        link: ""
     });
 
     const [submit, setSubmit] = useState({
-        username: "",
-        email: "",
-        password: "",
-        cpassword: "",
-        interests: [],
+        title: "",
+        speaker_name: "",
+        about_speaker: "",
+        domain: "",
+        description: "",
+        audience: "",
+        time: "",
+        date: "",
+        online_offline: "",
+        location: "",
+        link: ""
     })
 
     const handleChange = (event) => {
@@ -52,12 +64,17 @@ const UploadWebinars = () => {
         if (register.password === register.cpassword) {
             setSubmit(register);
             setRegister({
-                webinartitle: "",
-                speaker: "",
+                title: "",
+                speaker_name: "",
+                about_speaker: "",
+                domain: "",
+                description: "",
+                audience: "",
+                time: "",
+                date: "",
+                online_offline: "",
                 location: "",
-                intendedaudience: "",
-                // minExp: "",
-                // maxExp: "",
+                link: "",
                 email: "",
                 password: "",
                 cpassword: "",
@@ -117,15 +134,63 @@ const UploadWebinars = () => {
     };
     return (
         <>
-            <NavbarLogin/>
-            <h2>{`${submit.username} ${submit.email} ${submit.password} ${submit.cpassword} ${submit.interests}`}</h2>
+            <NavbarLogin />
+            {/* <h2>{`${submit.username} ${submit.email} ${submit.password} ${submit.cpassword} ${submit.interests}`}</h2> */}
             <Container maxWidth="sm" className="upload-container">
                 <Paper elevation={3} className="signupPaper">
                     <Paper className="signin" id="paper">
                         <form onSubmit={submitFunc} id="myform">
-                            <TextField className="myinput" name="webinartitle" value={register.webinartitle} onChange={handleChange} fullWidth={true} label="WebinarTitle" variant="standard" required={true} />
-                            <TextField className="myinput" name="speaker" value={register.speaker} onChange={handleChange} fullWidth={true} label="Speaker Name" variant="standard" required={true} />
-                            <TextField className="myinput" name="intendedaudience" value={register.intendedaudience} onChange={handleChange} fullWidth={true} label="Intended audience" variant="standard" required={true} />
+                            <TextField className="myinput" name="title" value={register.title} onChange={handleChange} fullWidth={true} label="WebinarTitle" variant="standard" required={true} />
+                            <TextField className="myinput" name="speaker_name" value={register.speaker_name} onChange={handleChange} fullWidth={true} label="Speaker Name" variant="standard" required={true} />
+                            <TextField className="myinput" name="about_speaker" value={register.about_speaker} onChange={handleChange} fullWidth={true} label="Brief Information About Speaker" variant="standard" required={true} />
+                            <br />
+                            <br />
+                            <InputLabel style={{ textAlign: "left" }}>Select Domain</InputLabel>
+                            <FormControl className={classes.formControl} fullWidth={true} >
+                                <InputLabel id="demo-simple-select-label">Domain</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    onChange={handleChange}
+                                    name="domain"
+                                    value={register.domain}
+
+                                >
+                                    <MenuItem value={0}>Data Science</MenuItem>
+                                    <MenuItem value={1}>Blockchan</MenuItem>
+                                    <MenuItem value={2}>Cyber Security</MenuItem>
+                                    <MenuItem value={3}>Cloud Computing</MenuItem>
+                                    <MenuItem value={4}>Programming</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <TextField className="myinput" name="description" value={register.description} onChange={handleChange} fullWidth={true} label="Webinar Description" variant="standard" required={true} />
+                            <TextField className="myinput" name="audience" value={register.audience} onChange={handleChange} fullWidth={true} label="Intended audience" variant="standard" required={true} />
+                            <form className={classes.container} noValidate>
+                                <TextField style={{ alignItems: "left" }}
+                                    id="date"
+                                    label="Webinar Date"
+                                    type="date"
+                                    defaultValue="2021-01-01"
+                                    className={classes.textField}
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
+                                />
+
+                                <TextField
+                                    id="time"
+                                    label="Webinar Time"
+                                    type="time"
+                                    defaultValue="12:00"
+                                    className={classes.textField}
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
+                                    inputProps={{
+                                        step: 300, // 5 min
+                                    }}
+                                />
+                            </form>
                             {/* <TextField className="myinput" name="addskills" value={register.addskills} onChange={handleChange} fullWidth={true} label="Additional Skills" variant="standard" required={true} /> */}
 
                             {/* <InputLabel style={{ textAlign: "left" }}>Experience</InputLabel>
@@ -162,14 +227,14 @@ const UploadWebinars = () => {
                                 </Select>
                             </FormControl> */}
 
-                                {/* <FormHelperText>Some important helper text</FormHelperText> */}
+                            {/* <FormHelperText>Some important helper text</FormHelperText> */}
 
                             {/* <InputLabel id="demo-simple-select-label" style={{textAlign:"left"}} fullWidth={true}>CTC</InputLabel> */}
                             <br />
-                            <br/>
+                            
                             <FormControl component="fieldset" fullWidth={true} style={{ alignItems: "left" }}>
                                 <FormLabel component="legend" style={{ textAlign: "left" }}>webinar mode</FormLabel>
-                                <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChangeRadio}>
+                                <RadioGroup aria-label="gender" name="mode" value={value} onChange={handleChangeRadio}>
                                     <FormControlLabel value="offline" control={<Radio />} label="Offline" />
                                     <FormControlLabel value="Online" control={<Radio />} label="Online" />
                                     {/* <FormControlLabel value="_." control={<Radio />} label="." /> */}
@@ -178,40 +243,12 @@ const UploadWebinars = () => {
                             </FormControl>
 
                             <TextField className="myinput" name="location" value={register.location} onChange={handleChange} fullWidth={true} label="Location if offline" variant="standard" required={false} />
-
-                            <TextField className="myinput" name="Speaker_Bio" value={register.qualification} onChange={handleChange} fullWidth={true} label="Brief Information About Speaker" variant="standard" required={true} />
-                            <TextField className="myinput" name="Webinar_Description" value={register.description} onChange={handleChange} fullWidth={true} label="Webinar Description" variant="standard" required={true} />
-                            <TextField className="myinput" name="Registration_link" value={register.registrationlink} onChange={handleChange} fullWidth={true} label="Registration Link" variant="standard" required={true} />
+                            <TextField className="myinput" name="link" value={register.link} onChange={handleChange} fullWidth={true} label="Registration Link" variant="standard" required={true} />
                             {/* <TextField className="myinput" name="Company_Name" value={register.company_name} onChange={handleChange} fullWidth={true} label="Company Hiring For
                             /Company Name" variant="standard" required={true} /> */}
 
 
-                            <form className={classes.container} noValidate>
-                                <TextField style={{ alignItems: "left" }}
-                                    id="date"
-                                    label="Webinar Date"
-                                    type="date"
-                                    defaultValue="2021-01-01"
-                                    className={classes.textField}
-                                    InputLabelProps={{
-                                        shrink: true,
-                                    }}
-                                />
-
-                                <TextField
-                                    id="time"
-                                    label="Webinar Time"
-                                    type="time"
-                                    defaultValue="12:00"
-                                    className={classes.textField}
-                                    InputLabelProps={{
-                                        shrink: true,
-                                    }}
-                                    inputProps={{
-                                        step: 300, // 5 min
-                                    }}
-                                />
-                            </form>
+                            
 
                             {/* 
                 <Select
@@ -255,7 +292,7 @@ const UploadWebinars = () => {
                     </Paper>
                 </Paper>
             </Container>
-            <Footer/>
+            <Footer />
         </>
     );
 }

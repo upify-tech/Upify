@@ -38,10 +38,15 @@
 }
 
 .footer-heading{
+    padding-bottom: 4px;
     color: #3487cd ;
     background-color: #252222;
     text-align: center;
     font-size: 3rem;
     font-weight: bold;
 
+}
+
+.vcenter{
+    vertical-align: middle;
 }

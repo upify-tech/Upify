@@ -9,9 +9,9 @@ const ApiLogin = () => {
     return (
         <>
         <div className="apiLogin">
-            <Button variant="outlined" fullWidth={true} color="primary"><FacebookIcon className="adjustIcon" /><span>Login With Facebook</span></Button><br></br>
+            <Button variant="outlined" fullWidth={true} color="secondary"><FacebookIcon className="adjustIcon" /><span>Login With Facebook</span></Button><br></br>
             <Button variant="outlined" fullWidth={true}  color="secondary"><img className="adjustIcon" src="https://cdn.worldvectorlogo.com/logos/google-icon.svg" alt="img" width="20px" height="20px" /><span>Login With Google</span></Button><br></br>
-            <Button variant="outlined" fullWidth={true}  color="primary"><LinkedInIcon className="adjustIcon" /><span>Login With LinkedIn</span></Button><br></br>
+            <Button variant="outlined" fullWidth={true}  color="secondary"><LinkedInIcon className="adjustIcon" /><span>Login With LinkedIn</span></Button><br></br>
         </div>
         <div>
             <h6 className="or">{str}</h6>

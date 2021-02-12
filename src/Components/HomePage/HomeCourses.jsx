@@ -19,10 +19,10 @@ const Courses = () => {
             <br/>
             <br/>
             <WelcomeNote />
-            <Container>
-                <Typography gutterBottom variant="h5" component="h2" className="center">
+                <Typography gutterBottom variant="h5" component="h2" className="center" id="home-typography">
                     Recommended Courses
                 </Typography>
+            <Container >
                 {/* <RowComp /> */}
 
                 {

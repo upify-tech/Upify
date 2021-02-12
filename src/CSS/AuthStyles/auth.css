@@ -24,6 +24,10 @@
     border: 3px solid #289b98 !important;
 }
 
+.PrivateTabIndicator-colorSecondary-3 {
+    background-color: #289b98 !important;
+}
+
 #paper {
     border: 3px solid #289b98;
     /* border: 3px solid #c1e8e7; */
@@ -60,14 +64,14 @@ h6 {
 h6:before{ 
     content: ""; 
     flex: 1 1; 
-    border-bottom: 0.5px solid crimson; 
+    border-bottom: 3px solid #289b98;
     margin: auto;
 } 
 
 h6:after {
     content: ""; 
     flex: 1 1; 
-    border-bottom: 0.5px solid crimson; 
+    border-bottom: 3px solid #289b98;
     margin:auto;
 }
 

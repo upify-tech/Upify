@@ -20,22 +20,31 @@ import Footer from '../../Footer';
 
 
 
-
 const UploadCourses = () => {
     const [register, setRegister] = useState({
-        username: "",
-        email: "",
-        password: "",
-        cpassword: "",
-        interests: [],
+        title: "",
+        tutor_name: "",
+        about_tutor: "",
+        domain: "",
+        description: "",
+        prerequisites: "",
+        duration: "",
+        paid_unpaid: "",
+        amount:"",
+        link: "",
     });
 
     const [submit, setSubmit] = useState({
-        username: "",
-        email: "",
-        password: "",
-        cpassword: "",
-        interests: [],
+        title: "",
+        tutor_name: "",
+        about_tutor: "",
+        domain: "",
+        description: "",
+        prerequisites: "",
+        duration: "",
+        paid_unpaid: "",
+        amount:"",
+        link: "",
     })
 
     const handleChange = (event) => {
@@ -52,12 +61,16 @@ const UploadCourses = () => {
         if (register.password === register.cpassword) {
             setSubmit(register);
             setRegister({
-                coursetitle: "",
+                title: "",
+                tutor_name: "",
+                about_tutor: "",
+                domain: "",
+                description: "",
                 prerequisites: "",
-                intendedstudents: "",
-                // addskills: "",
-                // minExp: "",
-                // maxExp: "",
+                duration: "",
+                paid_unpaid: "",
+                amount:"",
+                link: "",
                 email: "",
                 password: "",
                 cpassword: "",
@@ -114,37 +127,38 @@ const UploadCourses = () => {
 
     const handleChangeRadio = (event) => {
         setValue(event.target.value);
+        console.log(event.target.value);
     };
     return (
         <>
-            <NavbarLogin/>
-            <h2>{`${submit.username} ${submit.email} ${submit.password} ${submit.cpassword} ${submit.interests}`}</h2>
+            <NavbarLogin />
+            {/* <h2>{`${submit.username} ${submit.email} ${submit.password} ${submit.cpassword} ${submit.interests}`}</h2> */}
             <Container maxWidth="sm" className="upload-container">
                 <Paper elevation={3} className="signupPaper">
                     <Paper className="signin" id="paper">
                         <form onSubmit={submitFunc} id="myform">
-                            <TextField className="myinput" name="coursetitle" value={register.coursetitle} onChange={handleChange} fullWidth={true} label="Course Title" variant="standard" required={true} />
-                            <TextField className="myinput" name="prerequisites" value={register.prerequisites} onChange={handleChange} fullWidth={true} label="Prerequisites" variant="standard" required={true} />
-                            <TextField className="myinput" name="intendedstudents" value={register.intendedstudents} onChange={handleChange} fullWidth={true} label="Intended students" variant="standard" required={true} />
-                            {/* <TextField className="myinput" name="location" value={register.location} onChange={handleChange} fullWidth={true} label="Locations(s)" variant="standard" required={true} /> */}
-                            {/* <TextField className="myinput" name="addskills" value={register.addskills} onChange={handleChange} fullWidth={true} label="Additional Skills" variant="standard" required={true} /> */}
-                            {/* <InputLabel style={{ textAlign: "left" }}>Experience</InputLabel>
+                            <TextField className="myinput" name="title" value={register.title} onChange={handleChange} fullWidth={true} label="Course Title" variant="standard" required={true} />
+                            <TextField className="myinput" name="description" value={register.description} onChange={handleChange} fullWidth={true} label="Course Description" variant="standard" required={true} />
+                            <br />
+                            <InputLabel style={{ textAlign: "left" }}>Select Domain</InputLabel>
                             <FormControl className={classes.formControl} fullWidth={true} >
-                                <InputLabel id="demo-simple-select-label">Min Exp</InputLabel>
+                                <InputLabel id="demo-simple-select-label">Domain</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
                                     onChange={handleChange}
-                                    name="minExp"
-                                    value={register.minExp}
+                                    name="domain"
+                                    value={register.domain}
 
                                 >
-                                    <MenuItem value={0}>Zero</MenuItem>
-                                    <MenuItem value={1}>One Year</MenuItem>
-                                    <MenuItem value={2}>Two Year</MenuItem>
+                                    <MenuItem value={0}>Data Science</MenuItem>
+                                    <MenuItem value={1}>Blockchan</MenuItem>
+                                    <MenuItem value={2}>Cyber Security</MenuItem>
+                                    <MenuItem value={3}>Cloud Computing</MenuItem>
+                                    <MenuItem value={4}>Programming</MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl className={classes.formControl} fullWidth={true} >
+                            {/* <FormControl className={classes.formControl} fullWidth={true} >
                                 <InputLabel id="demo-simple-select-helper-label">Max Exp</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-helper-label"
@@ -161,6 +175,12 @@ const UploadCourses = () => {
                                     <MenuItem value={2}>Two Year</MenuItem>
                                 </Select>
                             </FormControl> */}
+                            <TextField className="myinput" name="prerequisites" value={register.prerequisites} onChange={handleChange} fullWidth={true} label="Prerequisites" variant="standard" required={true} />
+                            <TextField className="myinput" name="tutor_name" value={register.tutor_name} onChange={handleChange} fullWidth={true} label="Name Of Tutor" variant="standard" required={true} />
+                            <TextField className="myinput" name="duration" value={register.duration} onChange={handleChange} fullWidth={true} label="Course Duration" variant="standard" required={true} />
+                            {/* <TextField className="myinput" name="location" value={register.location} onChange={handleChange} fullWidth={true} label="Locations(s)" variant="standard" required={true} /> */}
+                            {/* <TextField className="myinput" name="intendedstudents" value={register.intendedstudents} onChange={handleChange} fullWidth={true} label="Intended students" variant="standard" required={true} /> */}
+                            {/* <TextField className="myinput" name="addskills" value={register.addskills} onChange={handleChange} fullWidth={true} label="Additional Skills" variant="standard" required={true} /> */}
 
                             {/* <FormHelperText>Some important helper text</FormHelperText> */}
 
@@ -169,7 +189,7 @@ const UploadCourses = () => {
                             <br />
                             <FormControl component="fieldset" fullWidth={true} style={{ alignItems: "left" }}>
                                 <FormLabel component="legend" style={{ textAlign: "left" }}>Fee Struture</FormLabel>
-                                <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChangeRadio}>
+                                <RadioGroup aria-label="gender" name="paid_unpaid" value={value} onChange={handleChangeRadio}>
                                     <FormControlLabel value="paid" control={<Radio />} label="Paid" />
                                     <FormControlLabel value="unpaid" control={<Radio />} label="Un Paid" />
                                     {/* <FormControlLabel value="_." control={<Radio />} label="." /> */}
@@ -178,11 +198,8 @@ const UploadCourses = () => {
 
                             {/* <FormControlLabel value="disabled" disabled control={<Radio />} label="(Disabled option)" /> */}
 
-                            <TextField className="myinput" name="Amount" value={register.Amount} onChange={handleChange} fullWidth={true} label="Amount" variant="standard" required={false} />
-                            <TextField className="myinput" name="Course_Duration" value={register.duration} onChange={handleChange} fullWidth={true} label="Course Duration" variant="standard" required={true} />
-                            <TextField className="myinput" name="Course_Description" value={register.description} onChange={handleChange} fullWidth={true} label="Course Description" variant="standard" required={true} />
-                            <TextField className="myinput" name="Tutor_Name" value={register.tutor_name} onChange={handleChange} fullWidth={true} label="Name Of Tutor" variant="standard" required={true} />
-
+                            <TextField className="myinput" name="amount" value={register.amount} onChange={handleChange} fullWidth={true} label="Amount" variant="standard" required={false} />
+                            <TextField className="myinput" name="link" value={register.link} onChange={handleChange} fullWidth={true} label="Registration Link" variant="standard" required={true} />
 
                             {/* <form className={classes.container} noValidate>
                                 <TextField style={{ alignItems: "left" }}
@@ -257,7 +274,7 @@ const UploadCourses = () => {
                     </Paper>
                 </Paper>
             </Container>
-            <Footer/>
+            <Footer />
 
         </>
     );

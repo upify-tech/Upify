@@ -26,7 +26,7 @@ const Profile = () => {
                 <input type="checkbox" name="artificial intelligence" value="ai" /> Artificial Intelligence<br />
                 <input type="checkbox" name="web development" value="wd"
                     checked /> Web Development<br />
-                <p>And so on....</p>
+                {/* <p>And so on....</p> */}
             </div>
             {/* <div className="profile-card profile-container">
                 <h2><b>My Courses</b></h2>

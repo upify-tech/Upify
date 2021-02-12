@@ -70,7 +70,7 @@ const ITEM_PADDING_TOP = 8;
   ];
     return(
         <>
-          <h2>{`${submit.username} ${submit.email} ${submit.password} ${submit.cpassword} ${submit.interests}`}</h2>
+          {/* <h2>{`${submit.username} ${submit.email} ${submit.password} ${submit.cpassword} ${submit.interests}`}</h2> */}
           <Paper elevation={3} className = "signupPaper">
             <Paper className="signin" id="paper">
               <form onSubmit={submitFunc} id="myform">

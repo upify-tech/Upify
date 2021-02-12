@@ -35,7 +35,7 @@ const Auth = () => {
                  onChange={handleChange}
                  variant="fullWidth"
                  aria-label="full width tabs example"
-                 textColor="secondary"
+                 textColor="secondry"
                  >
              <Tab label = "Sign In" />
              <Tab label = "Sign Up" />
