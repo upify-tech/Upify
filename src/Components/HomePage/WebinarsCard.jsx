@@ -8,6 +8,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import webinar from "../../images/webinar.jpg"
+
 
 const useStyles = makeStyles({
   root: {
@@ -29,7 +31,7 @@ const WebinarsCard = () => {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="https://images.unsplash.com/photo-1514483127413-f72f273478c3?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OXx8YmxhY2t8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
+          image={webinar}
           title="Contemplative Reptile"
         />
         <CardContent>
@@ -45,10 +47,10 @@ const WebinarsCard = () => {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          View Details
+        See details
         </Button>
         <Button size="small" color="primary">
-          starred
+        Add to my list
         </Button>
       </CardActions>
     </Card>

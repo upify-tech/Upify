@@ -84,14 +84,21 @@
   display: inline-flex !important;
   width: 31% !important;
   margin: 20px 20px;
-  /* min-width: 223px !important;
-  margin-left: auto !important;
-  margin-right: auto !important; */
   flex-direction: row;
   min-width: 235px;
   flex-wrap: wrap;
   text-align: center;
   margin-inline-end: 2.2%;
+}
+
+.card-btn{
+  background-color: #cae7e7 !important;
+}
+
+.card-btn:hover{
+  /* color:#cae7e7; */
+  color:black;
+  background-color: white !important;
 }
   
 .card-section{

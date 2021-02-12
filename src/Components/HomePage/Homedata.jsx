@@ -32,11 +32,11 @@ const Homedata = (props) => {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" color="primary" href="https://www.techgig.com/home">
-            Share
+          <Button size="small" color="primary" href="https://www.techgig.com/home" className="card-btn">
+            See details
         </Button>
           <Button size="small" color="primary">
-            Learn More
+            Add to my list
         </Button>
         </CardActions>
       </Card>

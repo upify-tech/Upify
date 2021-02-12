@@ -134,6 +134,7 @@ const UploadJobs = () => {
   return (
     <>
       <NavbarLogin />
+      <h2 className="center upload-heading" >Create Job</h2>
       {/* <h2>{`${submit.username} ${submit.email} ${submit.password} ${submit.cpassword} ${submit.interests}`}</h2> */}
       <Container maxWidth="sm" className="upload-container">
         <Paper elevation={3} className="signupPaper">
