@@ -17,7 +17,7 @@ import '../../../CSS/AuthStyles/auth.css';
 import "../../../CSS/Upload.css";
 import NavbarLogin from '../NavbarLogin';
 import Footer from '../../Footer';
-
+import axios from 'axios'
 
 
 const UploadCourses = () => {
@@ -82,7 +82,17 @@ const UploadCourses = () => {
     }
     const submitFunc = (event) => {
         event.preventDefault();
-        isMatching();
+        setSubmit(register)
+        axios({
+          url:"/uploadcourses",
+          method:'POST',
+          data:register
+        }).then(()=>{
+          console.log("sucess")
+        }).catch((er)=>{
+          console.log(register)
+          console.log("Error123")
+        })
     }
 
     const ITEM_HEIGHT = 48;

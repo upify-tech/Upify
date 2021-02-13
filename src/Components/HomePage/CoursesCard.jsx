@@ -9,6 +9,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import course from "../../images/course.jpg";
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -43,12 +45,13 @@ const CoursesCard = () => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" className="card-btn">
         See details
         </Button>
-        <Button size="small" color="primary">
+        {/* <Button size="small" color="primary">
         Add to my list
-        </Button>
+        </Button> */}
+        <a href="/"><BookmarkBorderIcon color="primary" fontSize="large"/></a>
       </CardActions>
     </Card>
     </Container>

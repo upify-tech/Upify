@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 
 const useStyles = makeStyles({
   root: {
@@ -51,12 +52,13 @@ const MyCoursesCard = (props) => {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small" color="primary">
-              View Details
+            <Button size="small" color="primary" className="card-btn">
+              See details
         </Button>
-            <Button size="small" color="primary">
+            {/* <Button size="small" color="primary">
               starred
-        </Button>
+        </Button> */}
+        <a href="/"><BookmarkBorderIcon color="primary" fontSize="large"/></a>
           </CardActions>
         </Card>
       </Container>

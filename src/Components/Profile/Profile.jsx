@@ -24,8 +24,13 @@ const Profile = () => {
                 <h2><b>My Intrests</b></h2>
                 <input type="checkbox" name="machine learning" value="ml" /> Machine Learning<br />
                 <input type="checkbox" name="artificial intelligence" value="ai" /> Artificial Intelligence<br />
-                <input type="checkbox" name="web development" value="wd"
-                    checked /> Web Development<br />
+                <input type="checkbox" name="web development" value="wd"checked /> Web Development<br />
+                <input type="checkbox" name="Data Science" value="ds"checked /> Data Science<br />
+                <input type="checkbox" name="Blockchan" value="bl" /> Blockchan<br />
+                <input type="checkbox" name="Cyber Security" value="cs" /> Cyber Security<br />
+                <input type="checkbox" name="Cloud Computing" value="cl" /> Cloud Computing<br />
+                <input type="checkbox" name="Programming" value="pl" /> Programming<br />
+
                 {/* <p>And so on....</p> */}
             </div>
             {/* <div className="profile-card profile-container">
