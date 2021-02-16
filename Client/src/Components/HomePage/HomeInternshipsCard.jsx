@@ -1,55 +1,60 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from "react-router-dom";
 // import Hdata from '../data/Hdata';
 import Homedata from './Homedata';
 import Container from '@material-ui/core/Container';
+import '../../CSS/HomePage/Home.css';
 import HomeInternshipsData from '../../Data/HomeInternshipsData';
 import axios from 'axios';
 
 
-const HomeInternshipsCard = () => {
+const HomeInternshipsCard = (props) => {
     // const x={"A":"a","b":"b","c":"c"};
-    const [data,setData] = useState([]);
+    const [data, setData] = useState([]);
 
     const getData = () => {
-      console.log("getting data");
-      axios.get('/uploadinternship').then((response)=>{
-        const gettingdata = response.data;
-        console.log(gettingdata);
-        setData(()=>{
-          return(gettingdata)
+        console.log("getting data");
+        axios.get('/uploadinternship').then((response) => {
+            const gettingdata = response.data;
+            console.log(gettingdata);
+            setData(() => {
+                return (gettingdata)
+            })
+            console.log(data);
         })
-        console.log(data);
-      })}
-  
-      useEffect(()=>{ 
-        getData()
-    },[]);
-    const token = localStorage.getItem("token");
-    if(token == null){
-      return <Redirect to="/signup" />
     }
 
-    return (    
-        <> 
+    useEffect(() => {
+        getData()
+    }, []);
+
+    return (
+        <>
 
             <Container className="home-card-container">
                 {
-                    data.map((val, index) => {
+                    data.slice(0,3).filter((val)=>{
+                        if(props.Term===""){
+                            return val;
+                        }else if(val.title.toLowerCase().includes(props.Term.toLowerCase())){
+                            return val
+                        }
+                    }).map((val, index) => {
                         return (
                             <>
                                 <Homedata
-                                    title={val.title}
-                                    speaker_name={val.imgsrc}
-                                    about_speaker={val.about_speaker}
-                                    domain={val.domain} 
-                                    description={val.description}
-                                    audience={val.audience}
-                                    time={val.time}
-                                    date={val.date}
-                                    online_offline={val.online_offline} 
-                                    location={val.location}
-                                    link={val.linl}
+                                    title= {val.title}
+                                    description= {val.description}
+                                    comp_name= {val.comp_name}
+                                    domain=  {val.domain}
+                                    req_skills= {val.req_skills}
+                                    add_skills= {val.add_skills}
+                                    duration= {val.duration}
+                                    location= {val.location}
+                                    education= {val.education}
+                                    experience= {val.experience}
+                                    ctc= {val.ctc}
+                                    link= {val.link}
                                     // imgsrc={val.imgsrc}"https://media.timeout.com/images/105630861/750/422/image.jpg"
                                     // title={val.title}"A ORIGINAL NETFLIX SERIES"
                                     // sname={val.sname}"Stranger Things"

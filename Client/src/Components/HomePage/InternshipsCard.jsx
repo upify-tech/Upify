@@ -11,6 +11,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import internship from "../../images/internship.jpg";
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import '../../CSS/HomePage/Homecard.css';
 
 const useStyles = makeStyles({
   root: {
@@ -35,8 +36,9 @@ const InternshipsCard = (props) => {
   }
   return (
     <>
-      <Container className="card-container">
-        <Card className={classes.root}>
+      {/* <Container className="card-container"> */}
+        {/* <Card className={classes.root}> */}
+        <Card className="card">
           <CardActionArea>
             <CardMedia
               className={classes.media}
@@ -47,8 +49,14 @@ const InternshipsCard = (props) => {
               <Typography gutterBottom variant="h5" component="h2">
                 {props.title}
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-               {props.description}
+              <Typography variant="body2" color="textSecondary" component="p" className="card_info">
+              <b>Company: </b>{props.comp_name}
+              <br/>
+              <b>Description:</b> {props.description}
+              <br/>
+              <b>Location:</b> {props.location}
+              <br/>
+              <b>Domain:</b> {props.domain}
           </Typography>
             </CardContent>
           </CardActionArea>
@@ -62,7 +70,7 @@ const InternshipsCard = (props) => {
         </Button> */}
           </CardActions>
         </Card>
-      </Container>
+      {/* </Container> */}
     </>
   );
 }

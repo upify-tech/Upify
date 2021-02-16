@@ -1,6 +1,5 @@
 import React from "react";
 import profileIcon from "../../images/profile-icon.jpg";
-import Logout from "../Auth/Logout";
 
 const ProfileNav = () => {
     return (

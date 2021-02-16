@@ -29,28 +29,37 @@
         box-shadow: 0rem 1.3rem 1rem -.7rem rgba(0, 0, 0, 0.1);
         /* z-index: 1; */
 
-    }
-        
-  .cards{
-    width: 110%;
-    height: fit-content;
-    margin-left: 1rem;
-    margin-top: 0rem;
-    }
-  .card:hover{
+      }
+      
+      .cards{
+        width: 110%;
+        height: fit-content;
+        margin-left: 1rem;
+        margin-top: 0rem;
+      }
+      .card:hover{
         box-shadow: 0rem 3rem 1.8rem -.8rem rgba(0, 0, 0, 0.1);
         transform: scale(1.05,1.05);
       }
-
-
-  .MuiCardActionArea-root{
-    text-align: center !important;
-  }
+      
+      
+      .MuiCardActionArea-root{
+        text-align: center !important;
+      }
+      /* .card_info {
+        background-color: white;
+        width: 30rem;
+        height: 5rem;
+        overflow: scroll;
+        font-weight: bolder;
+        padding-right: 2rem;
+      } */
   .card_info{
     background-color: white;
-    width: 30rem;
+    width: 20rem;
     height: 5rem;
     max-width: 339px;
+    text-align: left;
     overflow: scroll;
     /* text-align: center !important; */
     font-weight: bolder;
@@ -108,14 +117,6 @@
   margin-right: auto;
   width: 50% !important;
 }
-/* .card_info {
-  background-color: white;
-  width: 30rem;
-  height: 5rem;
-  overflow: scroll;
-  font-weight: bolder;
-  padding-right: 2rem;
-} */
 
 
 /* @media (min-width: 600px){

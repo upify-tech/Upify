@@ -10,7 +10,7 @@ import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 // import BookmarkIcon from '@material-ui/icons/Bookmark';
 // import Container from '@material-ui/core/Container';
 import '../../CSS/HomePage/Homecard.css';
-
+import internship from "../../images/internship.jpg";
 
 
 const Homedata = (props) => {
@@ -21,20 +21,27 @@ const Homedata = (props) => {
         <CardActionArea>
           <CardMedia
             className="media"
-            image={props.imgsrc}
+            image={internship}
             title="Contemplative Reptile"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              SomeThing
+              {props.title}
           </Typography>
             <Typography variant="body2" color="textSecondary" component="p" className="card_info">
-              {props.sname}
+              <b>Company: </b>{props.comp_name}
+              <br/>
+              <b>Description:</b> {props.description}
+              <br/>
+              <b>Location:</b> {props.location}
+              <br/>
+              <b>Domain:</b> {props.domain}
             </Typography>
+
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" color="primary" href="/" className="card-btn">
+          <Button size="small" color="primary" href={props.link} target="/new" className="card-btn">
             <b>See details</b>
           </Button>
           {/* <Button size="small" color="primary">
@@ -45,6 +52,11 @@ const Homedata = (props) => {
     </>
   );
 }
+
+
+export default Homedata;
+
+
 
 
 // import React from 'react';
@@ -91,7 +103,6 @@ const Homedata = (props) => {
 //   );
 // }
 
-export default Homedata;
 
 
 // import React from 'react';

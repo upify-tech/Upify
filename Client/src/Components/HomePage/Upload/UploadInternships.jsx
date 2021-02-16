@@ -306,7 +306,7 @@ const UploadInternships = () => {
                   </MenuItem>
                 ))}
                 </Select> */}
-                            <Button className="myinput" type="submit" fullWidth={true} variant="outlined" color="secondary"><a href="/home">submit</a></Button>
+                            <Button className="myinput" type="submit" fullWidth={true} variant="outlined" color="secondary">submit</Button>
                         </form>
                     </Paper>
                 </Paper>

@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 // import Home from './Home';
 import { Typography } from '@material-ui/core';
 import { Container } from 'react-bootstrap';
+import {Jumbotron} from 'react-bootstrap';
 import MainWebinarsData from '../../Data/MainWebinarsData';
 import WebinarsCard from './WebinarsCard';
 import WelcomeNote from './WelcomeNote';
@@ -13,6 +14,7 @@ import axios from 'axios';
 
 const Webinars = () => {
     const [data,setData] = useState([]);
+    const [searchTerm, setsearchTerm] = useState("");
 
     const getData = () => {
       console.log("getting data");
@@ -38,9 +40,23 @@ const Webinars = () => {
             {/* <Home></Home> */}
             {/* <Navbar></Navbar> */}
             <NavbarLogin />
+            <br/><Jumbotron fluid>
+        <Container>
+            <h1>Welcome Mohammed</h1>
+                <p>
+                 You are at the right place to find the suitable courses, internships, jobs to build your career.
+                </p>
+               <input type="text"
+                  placeholder="Search.."
+                  onChange={(event)=>{
+                      setsearchTerm(event.target.value)
+                  }} 
+               />
+        </Container>
+        </Jumbotron>
             <br/>
-            <br/>
-            <WelcomeNote />
+            {/* <WelcomeNote /> */}
+
             <Container>
                 <Typography gutterBottom variant="h5" component="h2" className="center">
                     Recommended Webinars
@@ -48,7 +64,13 @@ const Webinars = () => {
                 {/* <RowComp /> */}
 
                 {
-                    data.map((val, index) => {
+                    data.filter((val)=>{
+                        if(searchTerm===""){
+                            return val;
+                        }else if(val.title.toLowerCase().includes(searchTerm.toLowerCase())){
+                            return val
+                        }
+                    }).map((val, index) => {
                         return (
                             <>
                                 <WebinarsCard

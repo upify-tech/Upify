@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 // import Home from './Home';
 import { Typography } from '@material-ui/core';
 import { Container } from 'react-bootstrap';
+import {Jumbotron} from 'react-bootstrap';
 import MainCoursesData from '../../Data/MainCoursesData';
 import CoursesCard from './CoursesCard';
 import WelcomeNote from './WelcomeNote';
@@ -14,6 +15,7 @@ import axios from 'axios'
 
 const Courses = () => {
     const [data,setData] = useState([]);
+    const [searchTerm, setsearchTerm] = useState("");
     const getData = () => {
       console.log("getting data");
       axios.get('/uploadcourses').then((response)=>{
@@ -40,7 +42,21 @@ const Courses = () => {
             <NavbarLogin />
             <br/>
             <br/>
-            <WelcomeNote />
+            {/* <WelcomeNote /> */}
+            <Jumbotron fluid>
+        <Container>
+            <h1>Welcome Mohammed</h1>
+                <p>
+                 You are at the right place to find the suitable courses, internships, jobs to build your career.
+                </p>
+               <input type="text"
+                  placeholder="Search.."
+                  onChange={(event)=>{
+                      setsearchTerm(event.target.value)
+                  }} 
+               />
+        </Container>
+        </Jumbotron>
                 <Typography gutterBottom variant="h5" component="h2" className="center" id="home-typography">
                     Recommended Courses
                 </Typography>
@@ -48,7 +64,13 @@ const Courses = () => {
                 {/* <RowComp /> */}
 
                 {
-                    data.map((val, index) => {
+                    data.filter((val)=>{
+                        if(searchTerm===""){
+                            return val;
+                        }else if(val.title.toLowerCase().includes(searchTerm.toLowerCase())){
+                            return val
+                        }
+                    }).map((val, index) => {
                         return (
                             <>
                                 <CoursesCard
