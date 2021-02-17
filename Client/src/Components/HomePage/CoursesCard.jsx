@@ -11,6 +11,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import course from "../../images/course.jpg";
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import '../../CSS/HomePage/Homecard.css';
 
 const useStyles = makeStyles({
   root: {
@@ -23,7 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
-const CoursesCard = () => {
+const CoursesCard = (props) => {
     const classes = useStyles();
     const token = localStorage.getItem("token");
     if(token == null){
@@ -31,8 +32,9 @@ const CoursesCard = () => {
     }
     return(
     <>
-    <Container fixed className="card-container">
-    <Card className={classes.root}>
+    {/* <Container fixed className="card-container"> */}
+    {/* <Card className={classes.root}> */}
+    <Card className="card">
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -41,16 +43,21 @@ const CoursesCard = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            {props.title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarcticaaaaa
+          <Typography variant="body2" color="textSecondary" component="p" className="card_info">
+              <b>Tutor Name: </b>{props.tutor_name}
+              <br/>
+              <b>Description:</b> {props.description}
+              <br/>
+              <b>Domain:</b> {props.domain}
+              <br/>
+              <b>Duration:</b> {props.duration}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" className="card-btn">
+        <Button size="small" color="primary" className="card-btn" href={props.link} target="/c">
         See details
         </Button>
         {/* <Button size="small" color="primary">
@@ -59,7 +66,7 @@ const CoursesCard = () => {
         <a href="/"><BookmarkBorderIcon color="primary" fontSize="large"/></a>
       </CardActions>
     </Card>
-    </Container>
+    {/* </Container> */}
     </>
     );
 }

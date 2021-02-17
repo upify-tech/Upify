@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   },
 });
 
-const WebinarsCard = () => {
+const WebinarsCard = (props) => {
     const classes = useStyles();
     const token = localStorage.getItem("token");
     if(token == null){
@@ -31,8 +31,9 @@ const WebinarsCard = () => {
     }
     return(
     <>
-    <Container fixed className="card-container">
-    <Card className={classes.root}>
+    {/* <Container fixed className="card-container"> */}
+    {/* <Card className={classes.root}> */}
+    <Card className="card">
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -41,17 +42,24 @@ const WebinarsCard = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+          {props.title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+          <Typography variant="body2" color="textSecondary" component="p" className="card_info">
+              <b>Speaker: </b>{props.speaker_name}
+              <br/>
+              <b>Description:</b> {props.description}
+              <br/>
+              <b>Domain:</b> {props.domain}
+              <br/>
+              <b>Date:</b> {props.date}
+              <br/>
+              <b>Time:</b> {props.time}
             
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" className="card-btn">
+        <Button size="small" color="primary" className="card-btn" href={props.link} target="/w">
         See details
         </Button>
         <a href="/"><BookmarkBorderIcon color="primary" fontSize="large"/></a>
@@ -60,7 +68,7 @@ const WebinarsCard = () => {
         </Button> */}
       </CardActions>
     </Card>
-    </Container>
+    {/* </Container> */}
     </>
     );
 }

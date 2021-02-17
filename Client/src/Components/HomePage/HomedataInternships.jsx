@@ -13,7 +13,7 @@ import '../../CSS/HomePage/Homecard.css';
 import internship from "../../images/internship.jpg";
 
 
-const Homedata = (props) => {
+const HomedataInternships = (props) => {
 
   return (
     <>
@@ -54,7 +54,7 @@ const Homedata = (props) => {
 }
 
 
-export default Homedata;
+export default HomedataInternships;
 
 
 

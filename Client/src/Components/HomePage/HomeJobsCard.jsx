@@ -12,7 +12,7 @@ const HomeJobsCard = (props) => {
 
     const getData = () => {
         console.log("getting data");
-        axios.get('/uploadjobs').then((response) => {
+        axios.get('/uploadjob').then((response) => {
             const gettingdata = response.data;
             console.log(gettingdata);
             setData(() => {
@@ -29,21 +29,29 @@ const HomeJobsCard = (props) => {
     return (
         <>
             <Container className="home-card-container" >
-                {
-                    data.slice(0,3).filter((val)=>{
-                        if(props.Term===""){
+            {/* filter((val) => {
+                        if (props.Term === "") {
                             return val;
-                        }else if(val.title.toLowerCase().includes(props.Term.toLowerCase())){
+                        } else if (val.title.toLowerCase().includes(props.Term.toLowerCase())) {
                             return val
                         }
-                    }).map((val, index) => {
+                    }). */}
+                {
+                    data.slice(0, 3).map((val, index) => {
                         return (
                             <>
                                 <HomedataJobs
-                                    imgsrc={val.imgsrc}//"https://media.timeout.com/images/105630861/750/422/image.jpg"
-                                    title={val.title}//"A ORIGINAL NETFLIX SERIES"
-                                    sname={val.sname}//"Stranger Things"
-                                    link={val.link}//"https://www.netflix.com/in/title/80057281"
+                                    title={val.title}
+                                    description={val.description}
+                                    comp_name={val.comp_name}
+                                    domain={val.domain}
+                                    req_skills={val.req_skills}
+                                    add_skills={val.add_skills}
+                                    location={val.location}
+                                    education={val.education}
+                                    experience={val.experience}
+                                    ctc={val.ctc}
+                                    link={val.link}
                                 />
                             </>
                         );

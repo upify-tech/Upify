@@ -40,7 +40,6 @@ const Jobs = () => {
         <>
 
             {/* <Home></Home> */}
-
             {/* <Home></Home> */}
             {/* <Navbar /> */}
             <NavbarLogin />
@@ -52,7 +51,7 @@ const Jobs = () => {
                     <h1>Welcome Mohammed</h1>
                     <p>
                         You are at the right place to find the suitable courses, internships, jobs to build your career.
-                </p>
+                    </p>
                     <input type="text"
                         placeholder="Search.."
                         onChange={(event) => {

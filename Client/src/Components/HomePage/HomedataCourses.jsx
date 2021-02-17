@@ -10,7 +10,7 @@ import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 // import BookmarkIcon from '@material-ui/icons/Bookmark';
 // import Container from '@material-ui/core/Container';
 import '../../CSS/HomePage/Homecard.css';
-import internship from "../../images/internship.jpg";
+import course from "../../images/course.jpg";
 
 
 const HomedataCourses = (props) => {
@@ -21,7 +21,7 @@ const HomedataCourses = (props) => {
         <CardActionArea>
           <CardMedia
             className="media"
-            image={internship}
+            image={course}
             title="Contemplative Reptile"
           />
           <CardContent>
@@ -29,15 +29,13 @@ const HomedataCourses = (props) => {
               {props.title}
           </Typography>
             <Typography variant="body2" color="textSecondary" component="p" className="card_info">
-              <b>Company: </b>{props.comp_name}
+            <b>Tutor Name: </b>{props.tutor_name}
               <br/>
               <b>Description:</b> {props.description}
               <br/>
-              <b>Location:</b> {props.location}
-              <br/>
               <b>Domain:</b> {props.domain}
               <br/>
-              <b>Location:</b> {props.location}
+              <b>Duration:</b> {props.duration}
             </Typography>
 
           </CardContent>

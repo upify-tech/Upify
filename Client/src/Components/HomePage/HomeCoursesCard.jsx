@@ -1,31 +1,57 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 // import Hdata from '../data/Hdata';
 import HomedataCourses from './HomedataCourses';
 import Container from '@material-ui/core/Container';
-import HomeCoursesData from '../../Data/HomeCoursesData'; 
+import HomeCoursesData from '../../Data/HomeCoursesData';
 import '../../CSS/HomePage/Home.css';
-
+import axios from 'axios'
 
 const HomeCoursesCard = (props) => {
-    // const x={"A":"a","b":"b","c":"c"};
+    const [data, setData] = useState([]);
+
+    const getData = () => {
+        console.log("getting data");
+        axios.get('/uploadcourses').then((response) => {
+            const gettingdata = response.data;
+            console.log(gettingdata);
+            setData(() => {
+                return (gettingdata)
+            })
+            console.log(data);
+        })
+    }
+
+    useEffect(() => {
+        getData()
+    }, []);
+
+
     return (
         <>
-            <Container className=" home-card-container">
-                {
-                    HomeCoursesData.slice(0,3).filter((val)=>{
-                        if(props.Term===""){
+            <Container className="home-card-container">
+            {/* filter((val) => {
+                        if (props.Term === "") {
                             return val;
-                        }else if(val.title.toLowerCase().includes(props.Term.toLowerCase())){
-                            return val
+                        } else if (val.title.toLowerCase().includes(props.Term.toLowerCase())) {
+                            return val;
                         }
-                    }).map((val, index) => {
+                    }). */}
+                {
+                    data.slice(0, 3).map((val, index) => {
                         return (
                             <>
                                 <HomedataCourses
-                                    imgsrc={val.imgsrc}//"https://media.timeout.com/images/105630861/750/422/image.jpg"
-                                    title={val.title}//"A ORIGINAL NETFLIX SERIES"
-                                    sname={val.sname}//"Stranger Things"
-                                    link={val.link}//"https://www.netflix.com/in/title/80057281"
+                                    title={val.title}
+                                    tutor_name={val.tutor_name}
+                                    about_tutor={val.about_tutor}
+                                    domain={val.domain}
+                                    description={val.description}
+                                    prerequisites={val.prerequisites}
+                                    duration={val.duration}
+                                    paid_unpaid={val.paid_unpaid}
+                                    amount={val.amount}
+                                    link={val.link}
                                 />
                             </>
                         );

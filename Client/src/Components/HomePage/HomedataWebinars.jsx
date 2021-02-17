@@ -29,15 +29,15 @@ const HomedataWebinars = (props) => {
               {props.title}
           </Typography>
             <Typography variant="body2" color="textSecondary" component="p" className="card_info">
-              <b>Company: </b>{props.comp_name}
+            <b>Speaker: </b>{props.speaker_name}
               <br/>
               <b>Description:</b> {props.description}
               <br/>
-              <b>Location:</b> {props.location}
-              <br/>
               <b>Domain:</b> {props.domain}
               <br/>
-              <b>Location:</b> {props.location}
+              <b>Date:</b> {props.date}
+              <br/>
+              <b>Time:</b> {props.time}
             </Typography>
 
           </CardContent>

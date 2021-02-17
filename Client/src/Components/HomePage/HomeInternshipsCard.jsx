@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from "react-router-dom";
 // import Hdata from '../data/Hdata';
-import Homedata from './Homedata';
+import HomedataInternships from './HomedataInternships';
 import Container from '@material-ui/core/Container';
 import '../../CSS/HomePage/Home.css';
 import HomeInternshipsData from '../../Data/HomeInternshipsData';
@@ -9,7 +9,6 @@ import axios from 'axios';
 
 
 const HomeInternshipsCard = (props) => {
-    // const x={"A":"a","b":"b","c":"c"};
     const [data, setData] = useState([]);
 
     const getData = () => {
@@ -32,17 +31,18 @@ const HomeInternshipsCard = (props) => {
         <>
 
             <Container className="home-card-container">
-                {
-                    data.slice(0,3).filter((val)=>{
+            {/* filter((val)=>{
                         if(props.Term===""){
                             return val;
                         }else if(val.title.toLowerCase().includes(props.Term.toLowerCase())){
-                            return val
+                            return val;
                         }
-                    }).map((val, index) => {
+                    }). */}
+                {
+                    data.slice(0,3).map((val, index) => {
                         return (
                             <>
-                                <Homedata
+                                <HomedataInternships
                                     title= {val.title}
                                     description= {val.description}
                                     comp_name= {val.comp_name}
