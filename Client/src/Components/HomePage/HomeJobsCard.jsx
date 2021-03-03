@@ -1,13 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-// import Hdata from '../data/Hdata';
 import HomedataJobs from './HomedataJobs';
 import Container from '@material-ui/core/Container';
-import HomeJobsData from '../../Data/HomeJobsData';
 import axios from 'axios';
 
 const HomeJobsCard = (props) => {
-    // const x={"A":"a","b":"b","c":"c"};
     const [data, setData] = useState([]);
 
     const getData = () => {
@@ -24,20 +21,23 @@ const HomeJobsCard = (props) => {
 
     useEffect(() => {
         getData()
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
         <>
             <Container className="home-card-container" >
-            {/* filter((val) => {
+                {
+                    data.filter((val) => {
                         if (props.Term === "") {
                             return val;
                         } else if (val.title.toLowerCase().includes(props.Term.toLowerCase())) {
                             return val
                         }
-                    }). */}
-                {
-                    data.slice(0, 3).map((val, index) => {
+                        else {
+                            return val;
+                        }
+                    }).slice(0, 3).map((val, index) => {
                         return (
                             <>
                                 <HomedataJobs

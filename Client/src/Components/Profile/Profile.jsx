@@ -1,13 +1,31 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import { Redirect } from "react-router-dom";
 import Switches from "./Switches";
 import EditIcon from "@material-ui/icons/Edit";
 import NavbarLogin from "../HomePage/NavbarLogin";
 import Footer from "../Footer";
-// import HomeJobsCard from "../HomePage/HomeJobsCard";
-
+import axios from "axios";
 
 const Profile = () => {
+    const [data,setData] = useState([]);
+
+    console.log(data)
+
+    const getData = () => {
+        console.log("getting data");
+        axios.get(`/register/${token}`).then((response)=>{
+          const gettingdata = response.data;
+          console.log(gettingdata);
+          setData(()=>{
+            return(gettingdata)
+          })
+          console.log(data);
+        })} 
+    
+    useEffect(()=>{ 
+          getData()
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+      },[]);
     const token = localStorage.getItem("token");
     if(token == null){
       return <Redirect to="/signup" />
@@ -21,8 +39,9 @@ const Profile = () => {
                     <div className="edit-icon">
                         <a href="/profile/edit-icon"><EditIcon /></a>
                     </div>
-                    <h4>Name:Name of the person</h4>
-                    <h4> Email:Email of the person</h4>
+                    <h4>Name:{data.username}</h4>
+                    {/* <h4> Email:{data.interests&&data.interests}</h4> */}
+                    <h4> Email:{data.email}</h4>
                 </div>
             </div>
             <div className="profile-card profile-container">
@@ -36,33 +55,8 @@ const Profile = () => {
                 <input type="checkbox" name="Cloud Computing" value="cl" /> Cloud Computing<br />
                 <input type="checkbox" name="Programming" value="pl" /> Programming<br />
 
-                {/* <p>And so on....</p> */}
             </div>
-            {/* <div className="profile-card profile-container">
-                <h2><b>My Courses</b></h2>
-                <div className="see-div">
-                <HomeJobsCard/>
-                    <a href="/profile/mycourses" className="see-btn">See more...</a>
-                </div>
-            </div>
-            <div className="profile-card profile-container">
-                <h2><b>My Internships</b></h2>
-                <div className="see-div">
-                    <a href="/profile/myinternships" className="see-btn">See more...</a>
-                </div>
-            </div>
-            <div className="profile-card profile-container">
-                <h2><b>My Jobs</b></h2>
-                <div className="see-div">
-                    <a href="/profile/myjobs" className="see-btn">See more...</a>
-                </div>
-            </div>
-            <div className="profile-card profile-container">
-                <h2><b>My Webinars</b></h2>
-                <div className="see-div">
-                    <a href="/profile/mywebinars" className="see-btn">See more...</a>
-                </div>
-            </div> */}
+            
             <div className="profile-card profile-container " id="settings-section">
 
                 <h2><b>Account Settings</b></h2><hr />

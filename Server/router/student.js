@@ -205,7 +205,40 @@ router.get("/register/:username",async (req,res)=>{
     }
 })
 
+router.put('/register/:id',async(req,res)=>{
+    try{
+        const id = req.params.id;
+        const upadateData = await Register.findByIdAndUpdate(id,req.body,{new : true});
+        console.log(updateData)
+        res.send(updateData);
 
+
+    }catch(err){
+        res.status(400).send(err);
+    }
+})
+
+router.post("/contact",async (req,res)=>{
+    try{
+        const contact=new Contact(req.body);    
+        const createContact=await contact.save();
+        res.status(201).send(createContact);
+        //mail();
+    }catch(err){
+        console.log(err);
+    }
+})
+
+router.get("/contact",async (req,res)=>{
+    try{
+        const coData = await Contact.find();
+        res.status(201);
+        res.send(coData);
+        
+    }catch(err){
+        res.send(err);
+    }
+})
 
 
 

@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import HomedataWebinars from './HomedataWebinars';
 import Container from '@material-ui/core/Container';
-import HomeWebinarsData from '../../Data/HomeWebinarsData';
 import axios from 'axios';
 
 const HomeWebinarsCard = (props) => {
@@ -22,19 +21,23 @@ const HomeWebinarsCard = (props) => {
 
     useEffect(() => {
         getData()
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
-        <>            <Container className="home-card-container">
-            {/* filter((val) => {
+        <>            
+        <Container className="home-card-container">
+            {
+                data.filter((val) => {
                     if (props.Term === "") {
                         return val;
                     } else if (val.title.toLowerCase().includes(props.Term.toLowerCase())) {
                         return val;
                     }
-                }). */}
-            {
-                data.slice(0, 3).map((val, index) => {
+                    else {
+                        return val;
+                    }
+                }).slice(0, 3).map((val, index) => {
                     return (
                         <>
                             <HomedataWebinars

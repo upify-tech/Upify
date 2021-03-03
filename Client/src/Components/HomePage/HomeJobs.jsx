@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from "react-router-dom";
-// import Home from './Home';
 import { Typography } from '@material-ui/core';
 import { Container } from 'react-bootstrap';
 import {Jumbotron} from 'react-bootstrap';
 import JobsCard from './JobsCard';
-import MainJobsData from '../../Data/MainJobsData';
-import WelcomeNote from './WelcomeNote';
-// import Navbar from './Navbar';
 import NavbarLogin from './NavbarLogin';
 import Footer from "../Footer";
 import axios from 'axios';
@@ -31,29 +27,47 @@ const Jobs = () => {
 
     useEffect(() => {
         getData()
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const [profiledata,setProfileData] = useState([]);
+
+    console.log(profiledata)
+
+    const getProfileData = () => {
+        console.log("getting data");
+        axios.get(`/register/${token}`).then((response)=>{
+          const gettingdata = response.data;
+          console.log(gettingdata);
+          setProfileData(()=>{
+            return(gettingdata)
+          })
+          console.log(profiledata);
+        })} 
+    
+    useEffect(()=>{ 
+          getProfileData()
+           // eslint-disable-next-line react-hooks/exhaustive-deps
+      },[]);
+
     const token = localStorage.getItem("token");
     if (token == null) {
         return <Redirect to="/signup" />
     }
     return (
         <>
-
-            {/* <Home></Home> */}
-            {/* <Home></Home> */}
-            {/* <Navbar /> */}
             <NavbarLogin />
             <br />
             <br />
-            {/* <WelcomeNote /> */}
             <Jumbotron fluid>
                 <Container>
-                    <h1>Welcome Mohammed</h1>
+                    <h1>Welcome {profiledata.username}</h1>
                     <p>
                         You are at the right place to find the suitable courses, internships, jobs to build your career.
                     </p>
                     <input type="text"
                         placeholder="Search.."
+                        className="search-field"
                         onChange={(event) => {
                             setsearchTerm(event.target.value)
                         }}
@@ -64,14 +78,16 @@ const Jobs = () => {
                 Recommended Jobs
                 </Typography>
             <Container className="home-card-container">
-                {/* <RowComp /> */}
 
                 {
                     data.filter((val)=>{
-                        if(searchTerm==""){
+                        if(searchTerm===""){
                             return val;
                         }else if(val.title.toLowerCase().includes(searchTerm.toLowerCase())){
                             return val
+                        }
+                        else {
+                            return val;
                         }
                     }).map((val, index) => {
                         return (
@@ -92,7 +108,6 @@ const Jobs = () => {
                             </>
                         );
                     })
-
                 }
             </Container>
             <Footer />

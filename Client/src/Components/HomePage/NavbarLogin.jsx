@@ -9,8 +9,7 @@ const NavbarLogin=()=>{
                 <div className="row" >
                     <div className="col-11 mx-auto" >
                         <nav className="navbar navbar-expand-lg navbar-light ">
-                            {/* <a className="navbar-brand" href="https://www.youtube.com/">Upify</a> */}
-                            <a className="navbar-brand" href="https://www.youtube.com/">
+                            <a className="navbar-brand" href="/">
                             <img src={Upifylogo} alt="Upifylogo" className="logo"/>
                             </a>
                             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +26,7 @@ const NavbarLogin=()=>{
                                            Courses</a>
                                         <div className="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
                                             <a className="dropdown-item nav-active" href="/courses">Courses</a>
-                                            <a className="dropdown-item nav-active" href="/profile/mycourses">My Courses</a>
+                                            {/* <a className="dropdown-item nav-active" href="/profile/mycourses">My Courses</a> */}
                                             <div className="dropdown-divider"></div>
                                             <a className="dropdown-item nav-active" href="/uploadcourses">Post Courses</a>
                                         </div>
@@ -37,7 +36,7 @@ const NavbarLogin=()=>{
                                            Internships</a>
                                         <div className="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
                                             <a className="dropdown-item" href="/internships">Internships</a>
-                                            <a className="dropdown-item" href="/profile/myinternships">My Internships</a>
+                                            {/* <a className="dropdown-item" href="/profile/myinternships">My Internships</a> */}
                                             <div className="dropdown-divider"></div>
                                             <a className="dropdown-item" href="/uploadinternship">Post Internship</a>
                                         </div>
@@ -47,7 +46,7 @@ const NavbarLogin=()=>{
                                            Jobs</a>
                                         <div className="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
                                             <a className="dropdown-item" href="/jobs">Jobs</a>
-                                            <a className="dropdown-item" href="/profile/myjobs">My Jobs</a>
+                                            {/* <a className="dropdown-item" href="/profile/myjobs">My Jobs</a> */}
                                             <div className="dropdown-divider"></div>
                                             <a className="dropdown-item" href="/uploadjob">Create Job</a>
                                         </div>
@@ -58,20 +57,11 @@ const NavbarLogin=()=>{
                                             Webinars</a>
                                         <div className="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
                                             <a className="dropdown-item" href="/webinars">Webinars</a>
-                                            <a className="dropdown-item" href="/profile/mywebinars">My Webinars</a>
+                                            {/* <a className="dropdown-item" href="/profile/mywebinars">My Webinars</a> */}
                                             <div className="dropdown-divider"></div>
                                             <a className="dropdown-item" href="/uploadwebinar"> Post Webinar</a>
                                         </div>
                                     </li>
-                                    {/* <li className="nav-item" >
-                                        <a className="nav-link nav-active" href="/jobs" > Jobs </a>
-                                    </li>
-                                    <li className="nav-item" >
-                                        <a className="nav-link nav-active" href="/courses" > Courses </a>
-                                    </li>
-                                    <li className="nav-item" >
-                                        <a className="nav-link nav-active" href="/webinars" > Webinars </a>
-                                    </li> */}
                                     <ProfileNav/>
                                 </ul>
                             </div>

@@ -2,14 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import  {CssBaseline,Container,Typography } from '@material-ui/core';
 import { Tabs,Tab,AppBar } from '@material-ui/core';
-// import useStyles from '../../CSS/AuthStyles/signin.js';
 import Signin from './Signin.jsx';
 import Signup from './Signup.jsx';
 import  '../../CSS/AuthStyles/auth.css';
 import Navbar from '../Landing/Navbar.jsx';
 
 const Auth = () => {
-    // const classes = useStyles();
     const [value,setValue] = useState(0);
     const handleChange = (event,val) => {
       setValue(val);

@@ -17,9 +17,6 @@ const MyCourses = () => {
     }
     return (
         <>
-            {/* <Home></Home> */}
-            {/* <Home></Home> */}
-            {/* <Navbar></Navbar> */}
             <NavbarLogin/>
             <br/>
             <br/>
@@ -28,17 +25,16 @@ const MyCourses = () => {
                 Your Courses
             </Typography>
             <Container >
-                {/* <RowComp /> */}
 
                 {
                     MyCoursesData.map((val, index) => {
                         return (
                             <>
                                 <MyCoursesCard
-                                    imgsrc={val.imgsrc}//"https://media.timeout.com/images/105630861/750/422/image.jpg"
-                                    title={val.title}//"A ORIGINAL NETFLIX SERIES"
-                                    sname={val.sname}//"Stranger Things"
-                                    link={val.link}//"https://www.netflix.com/in/title/80057281"
+                                    imgsrc={val.imgsrc}
+                                    title={val.title}
+                                    sname={val.sname}
+                                    link={val.link}
                                 />
                             </>
                         );

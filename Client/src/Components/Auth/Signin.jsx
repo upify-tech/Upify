@@ -19,6 +19,7 @@ const Signin = () => {
         username:"",
         password:"",
       })
+      console.log(submit);
       const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -29,19 +30,6 @@ const Signin = () => {
           });
         })
       };
-    
-    // const postLogin = () => {
-    //   console.log("postLogin started");
-    //     setSubmit(login);
-    //      axios({
-    //        url:"/login",
-    //        method:'POST',
-    //        data:login
-    //      }).then(()=>{
-    //        console.log("success");
-    //    }).catch(()=>{ console.log("Error"); 
-    //   });
-    //   }
 
       const submitFunc = (event) => {
         event.preventDefault();
@@ -55,7 +43,8 @@ const Signin = () => {
             if(isMatch){
               console.log("is matched called");
               // <Route exact path="/user" component={HomePage} />
-              localStorage.setItem("token","saveToken");
+              const details=userData.username;
+              localStorage.setItem("token",details);
               
       
               //setIsLoggedIn(true);

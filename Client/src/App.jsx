@@ -3,8 +3,6 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import About from "./Components/Landing/About";
 import Services from "./Components/Landing/Services";
 import Contact from "./Components/Landing/Contact";
-// import Navbar from "./Components/Landing/Navbar";
-// import Footer from "./Components/Footer";
 import "./CSS/Navbar.css";
 import "./CSS/index.css";
 import "./CSS/Footer.css"
@@ -16,10 +14,6 @@ import Jobs from "./Components/HomePage/HomeJobs";
 import Webinars from "./Components/HomePage/HomeWebinars";
 import LandingContent from "./Components/Landing/LandingContent";
 import Profile from "./Components/Profile/Profile";
-import MyCourses from "./Components/HomePage/MyList/MyCourses";
-import MyInternships from "./Components/HomePage/MyList/MyInternships";
-import MyJobs from "./Components/HomePage/MyList/MyJobs";
-import MyWebinars from "./Components/HomePage/MyList/MyWebinars";
 import UploadJobs from "./Components/HomePage/Upload/UploadJobs";
 import Settings from "./Components/Profile/Settings";
 import EditProfile from "./Components/Profile/EditProfile";
@@ -30,11 +24,16 @@ import UploadCourses from "./Components/HomePage/Upload/UploadCourses";
 import Auth from "./Components/Auth/Auth";
 import Logout from "./Components/Auth/Logout";
 
+// import MyCourses from "./Components/HomePage/MyList/MyCourses";
+// import MyInternships from "./Components/HomePage/MyList/MyInternships";
+// import MyJobs from "./Components/HomePage/MyList/MyJobs";
+// import MyWebinars from "./Components/HomePage/MyList/MyWebinars";
+
+
 const App = () => {
    
     return (
         <>
-            {/* <Navbar /> */}
             <Switch>
                 <Route exact path="/" component={LandingContent} />
                 <Route exact path="/#services-section" component={Services} />
@@ -47,10 +46,6 @@ const App = () => {
                 <Route exact path='/jobs' component={Jobs}></Route>
                 <Route exact path='/webinars' component={Webinars}></Route>
                 <Route exact path="/profile" component={Profile} />
-                <Route exact path="/profile/mycourses" component={MyCourses} />
-                <Route exact path="/profile/myinternships" component={MyInternships} />
-                <Route exact path="/profile/myjobs" component={MyJobs} />
-                <Route exact path="/profile/mywebinars" component={MyWebinars} />
                 <Route exact path="/profile/settings" component={Settings} />
                 <Route exact path="/profile/edit-icon" component={EditProfile} />
                 <Route exact path="/profile/change-password" component={ChangePassword} />
@@ -59,8 +54,11 @@ const App = () => {
                 <Route exact path="/uploadinternship" component={UploadInternships} />
                 <Route exact path="/uploadcourses" component={UploadCourses} />
                 <Route exact path="/logout" component={Logout} />
-
                 <Redirect to="/" />
+                {/* <Route exact path="/profile/mycourses" component={MyCourses} /> */}
+                {/* <Route exact path="/profile/myinternships" component={MyInternships} /> */}
+                {/* <Route exact path="/profile/myjobs" component={MyJobs} /> */}
+                {/* <Route exact path="/profile/mywebinars" component={MyWebinars} /> */}
             </Switch>
 
         </>

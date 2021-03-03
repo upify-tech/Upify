@@ -21,6 +21,7 @@ const Signup = () => {
     cpassword:"",
     interests:[],
   })
+  console.log(submit);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -41,6 +42,7 @@ const Signup = () => {
       data:register
     }).then(()=>{
       console.log("success");
+      // window.location.href="/home";
   }).catch(()=>{ console.log("Error");
  });
  }
@@ -63,6 +65,9 @@ const Signup = () => {
  const submitFunc = (event) => {
    event.preventDefault();
    isMatching();
+   localStorage.setItem("token",register.username);
+
+   window.location.href="/home";
  }
 
 
@@ -86,7 +91,6 @@ const ITEM_PADDING_TOP = 8;
   ];
     return(
         <>
-          {/* <h2>{`${submit.username} ${submit.email} ${submit.password} ${submit.cpassword} ${submit.interests}`}</h2> */}
           <Paper elevation={3} className = "signupPaper">
             <Paper className="signin" id="paper">
               <form onSubmit={submitFunc} id="myform">

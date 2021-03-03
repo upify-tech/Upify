@@ -6,11 +6,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-// import BookmarkIcon from '@material-ui/icons/Bookmark';
-// import Container from '@material-ui/core/Container';
 import '../../CSS/HomePage/Homecard.css';
 import webinar from "../../images/webinar.jpg";
+// import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 
 
 const HomedataWebinars = (props) => {
@@ -46,9 +44,7 @@ const HomedataWebinars = (props) => {
           <Button size="small" color="primary" href={props.link} target="/new" className="card-btn">
             <b>See details</b>
           </Button>
-          {/* <Button size="small" color="primary">
-          </Button> */}
-          <a href="/"><BookmarkBorderIcon color="primary" fontSize="large"/></a>
+          {/* <a href="/"><BookmarkBorderIcon color="primary" fontSize="large"/></a> */}
         </CardActions>
       </Card>
     </>
